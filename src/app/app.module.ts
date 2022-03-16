@@ -7,7 +7,7 @@ import { IdSearchComponent } from './id-search/id-search.component';
 import { InterfaceComponent } from './interface/interface.component';
 import { FormsModule } from '@angular/forms';
 import { FilterPokemonPipePipe } from './filter-pokemon--pipe.pipe';
-import { ToStringPipe } from './to-string.pipe';
+
 
 @NgModule({
   declarations: [
@@ -15,7 +15,6 @@ import { ToStringPipe } from './to-string.pipe';
     IdSearchComponent,
     InterfaceComponent,
     FilterPokemonPipePipe,
-    ToStringPipe
   ],
   imports: [
     FormsModule,
