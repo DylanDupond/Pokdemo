@@ -6,12 +6,16 @@ import { AppComponent } from './app.component';
 import { IdSearchComponent } from './id-search/id-search.component';
 import { InterfaceComponent } from './interface/interface.component';
 import { FormsModule } from '@angular/forms';
+import { FilterPokemonPipePipe } from './filter-pokemon--pipe.pipe';
+import { ToStringPipe } from './to-string.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     IdSearchComponent,
-    InterfaceComponent
+    InterfaceComponent,
+    FilterPokemonPipePipe,
+    ToStringPipe
   ],
   imports: [
     FormsModule,

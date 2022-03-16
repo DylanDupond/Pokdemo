@@ -1,2 +1,15 @@
+<label>Q1 id</label>
 <input [(ngModel)]="id" type="text" id="idSearch" name="idsearch">
+<BR>
+  <label>Recherche par Nom</label>
+<input [(ngModel)]="name4Sort" type="text" id="nameSearch" name="namesearch">
+<BR>
+  <label>copie de id</label>
 <input readonly value={{id}}>
+<BR>
+<select [(ngModel)]="curPoke" name="Pokedex" id="pkdx">
+    <option *ngFor="let poke of pokedex |filterPokemonPipe:name4Sort">{{poke.name}}</option>
+</select>
+<BR>
+  <button (click)="IChooseU()">GO ! </button>
+  <BR>
