@@ -1,5 +1,6 @@
 import { Pokemon } from './../pokemon';
 import { Component, OnInit } from '@angular/core';
+import { PokeApiServiceService } from '../poke-api-service.service';
 
 @Component({
   selector: 'app-id-search',
@@ -10,10 +11,13 @@ export class IdSearchComponent implements OnInit {
   id:string ='';
   name4Sort:string='';
   curPoke :string='';
-  pokedex:Pokemon[] = [new Pokemon(4,"Salameche"),new Pokemon(403,"Lixy"),new Pokemon(551,"Mascaiman"),new Pokemon(656,"Grenousse")];
-
-  constructor() {
-  }
+  //pokedex:Pokemon[] = [new Pokemon(4,"Salameche"),new Pokemon(403,"Lixy"),new Pokemon(551,"Mascaiman"),new Pokemon(656,"Grenousse")];
+  pokedex : any;
+  constructor(private _pokService:PokeApiServiceService) {
+    this._pokService.CatchEmAll().subscribe((res: any) => {
+      this.pokedex = res.results;
+  });
+}
 
   IChooseU(){
     console.log(this.curPoke);

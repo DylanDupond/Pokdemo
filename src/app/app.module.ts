@@ -9,6 +9,9 @@ import { FormsModule } from '@angular/forms';
 import { FilterPokemonPipePipe } from './filter-pokemon--pipe.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
+import { HttpClientModule } from '@angular/common/http';
+import { PokeApiServiceService } from './poke-api-service.service';
+import { PokemonDisplayComponent } from './pokemon-display/pokemon-display.component';
 
 
 @NgModule({
@@ -17,6 +20,7 @@ import { MatSliderModule } from '@angular/material/slider';
     IdSearchComponent,
     InterfaceComponent,
     FilterPokemonPipePipe,
+    PokemonDisplayComponent,
   ],
   imports: [
     FormsModule,
@@ -24,8 +28,9 @@ import { MatSliderModule } from '@angular/material/slider';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatSliderModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [PokeApiServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
