@@ -12,7 +12,7 @@ export class PokeApiServiceService {
     return this.http.get('https://pokeapi.co/api/v2/pokemon?limit=898');
   }
 
-  CatchIt(){
-    return this.http.get('https://pokeapi.co/api/v2/pokemon/'+4);
+  CatchIt(id : string){
+    return this.http.get('https://pokeapi.co/api/v2/pokemon/'+id);
   }
 }

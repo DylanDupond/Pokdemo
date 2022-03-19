@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PokeApiServiceService } from '../poke-api-service.service';
+import { FUSIONService } from '../fusion.service';
 
 @Component({
   selector: 'app-pokemon-display',
@@ -17,8 +18,9 @@ export class PokemonDisplayComponent implements OnInit {
   vit:string='';
   sprite:string='';
 
-  constructor(private _pokService:PokeApiServiceService) {
-    this._pokService.CatchIt().subscribe((res: any) => {
+  constructor(private _pokService:PokeApiServiceService,private _fus:FUSIONService) {
+    _fus.getID().subscribe((e) =>{
+    this._pokService.CatchIt(e).subscribe((res: any) => {
       this.name= res.name;
       this.id=res.id
       this.hp=res.stats[0].base_stat;
@@ -28,8 +30,9 @@ export class PokemonDisplayComponent implements OnInit {
       this.defSP=res.stats[4].base_stat;
       this.vit=res.stats[5].base_stat;
       this.sprite=res.sprites.front_default
+    });
   });
-}
+    }
 
   ngOnInit(): void {
   }

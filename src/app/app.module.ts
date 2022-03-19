@@ -1,3 +1,4 @@
+import { FUSIONService } from './fusion.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -30,7 +31,7 @@ import { PokemonDisplayComponent } from './pokemon-display/pokemon-display.compo
     MatSliderModule,
     HttpClientModule,
   ],
-  providers: [PokeApiServiceService],
+  providers: [PokeApiServiceService,FUSIONService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
