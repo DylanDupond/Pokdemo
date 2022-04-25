@@ -17,8 +17,9 @@ export class PokemonDisplayComponent implements OnInit {
   defSP:string='';
   vit:string='';
   sprite:string='';
+  twinkle =true
 
-  constructor(private _pokService:PokeApiServiceService,private _fus:FUSIONService) {
+ constructor(private _pokService:PokeApiServiceService,private _fus:FUSIONService) {
     _fus.getID().subscribe((e) =>{
     this._pokService.CatchIt(e).subscribe((res: any) => {
       this.name= res.name;
@@ -30,10 +31,16 @@ export class PokemonDisplayComponent implements OnInit {
       this.defSP=res.stats[4].base_stat;
       this.vit=res.stats[5].base_stat;
       this.sprite=res.sprites.front_default
+      this._pokService.GetShine().subscribe((shi)=> shi?this.sprite=res.sprites.front_shiny :this.sprite=res.sprites.front_default)
     });
   });
     }
 
+
+    MakeItShine(){
+    this._pokService.SetShine(this.twinkle);
+    this.twinkle = !this.twinkle
+    }
   ngOnInit(): void {
   }
 
